@@ -11,7 +11,7 @@ import org.koin.androidx.viewmodel.ext.koin.viewModel
 import org.koin.dsl.module.module
 
 var viewmodels = module {
-    viewModel { MapViewModel() }
+    viewModel { MapViewModel(get()) }
     viewModel { SearchViewModel(get()) }
     viewModel { MainViewModel() }
 }

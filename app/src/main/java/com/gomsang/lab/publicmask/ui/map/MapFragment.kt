@@ -3,6 +3,7 @@ package com.gomsang.lab.publicmask.ui.map
 import android.os.CountDownTimer
 import android.util.Log
 import android.widget.Toast
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
 import com.gomsang.lab.publicmask.R
 import com.gomsang.lab.publicmask.base.BaseFragment
@@ -10,6 +11,8 @@ import com.gomsang.lab.publicmask.databinding.FragmentMapBinding
 import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.*
 import androidx.navigation.fragment.navArgs
+import com.gomsang.lab.publicmask.libs.constants.Logger
+import com.gomsang.lab.publicmask.libs.datas.Stock
 import com.naver.maps.map.MapFragment
 import com.naver.maps.map.overlay.Marker
 import io.nlopez.smartlocation.SmartLocation
@@ -28,6 +31,8 @@ class MapFragment : BaseFragment<FragmentMapBinding, MapViewModel>(), OnMapReady
     }
 
     var map: NaverMap? = null
+
+    var markerList = mutableMapOf<Marker, Stock>()
 
     override fun initStartView() {
         val fm = childFragmentManager
@@ -49,6 +54,19 @@ class MapFragment : BaseFragment<FragmentMapBinding, MapViewModel>(), OnMapReady
     }
 
     override fun initDataBinding() {
+        viewModel.stockLiveData.observe(this, Observer {
+            markerList.keys.forEach {
+                it.map = null
+            }
+            markerList.clear()
+
+            it.forEach {
+                val marker = Marker()
+                marker.position = LatLng(it.dealerLatitude, it.dealerLongitude)
+                marker.map = map
+                markerList.put(marker, it)
+            }
+        })
     }
 
     override fun initAfterBinding() {
@@ -73,6 +91,9 @@ class MapFragment : BaseFragment<FragmentMapBinding, MapViewModel>(), OnMapReady
 
         map.addOnCameraChangeListener { reason, animated ->
             Log.i("NaverMap", "카메라 변경 - reson: $reason, animated: $animated")
+            val target = map.cameraPosition.target
+            viewModel.query(target.latitude, target.longitude)
+            Logger.log("cameraLog", target.latitude.toString() + " " + target.longitude.toString())
         }
     }
 }

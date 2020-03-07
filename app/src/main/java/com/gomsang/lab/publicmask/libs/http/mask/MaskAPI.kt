@@ -4,8 +4,10 @@ import com.gomsang.lab.publicmask.libs.datas.mask.MaskQueryResult
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
+import com.gomsang.lab.publicmask.libs.datas.mask.Store
+
 
 interface MaskAPI {
-    @GET("v1/storesByGeo/json")
-    fun searchPlace(@Query("lat") latitude : String, @Query("lng") longitude : String) : Call<MaskQueryResult>
+    @GET("/corona19-masks/v1/storesByGeo/json")
+    fun searchPlace(@Query("lat") latitude : Double, @Query("lng") longitude : Double, @Query("m") distance : String) : Call<MaskQueryResult>
 }
