@@ -1,4 +1,4 @@
-package com.gomsang.lab.publicmask.models.naver
+package com.gomsang.lab.publicmask.models
 
 import com.gomsang.lab.publicmask.libs.constants.Logger
 import com.gomsang.lab.publicmask.libs.datas.Stock

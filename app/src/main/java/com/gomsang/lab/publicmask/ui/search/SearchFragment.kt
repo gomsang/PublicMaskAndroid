@@ -7,24 +7,20 @@ import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
-import androidx.core.content.ContextCompat.getSystemService
-import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.gomsang.lab.publicmask.R
 import com.gomsang.lab.publicmask.base.BaseFragment
 import com.gomsang.lab.publicmask.databinding.FragmentSearchBinding
 import com.gomsang.lab.publicmask.libs.OnRecyclerItemClickListener
 import com.gomsang.lab.publicmask.libs.datas.Place
-import com.naver.maps.geometry.LatLng
-import com.naver.maps.map.CameraUpdate
 import io.nlopez.smartlocation.SmartLocation
-import kotlinx.android.synthetic.main.fragment_search.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-
+/**
+ * 주소 검색 및 메인 프래그먼트
+ */
 class SearchFragment : BaseFragment<FragmentSearchBinding, SearchViewModel>() {
     override val layoutResourceId: Int
         get() = R.layout.fragment_search

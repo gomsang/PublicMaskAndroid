@@ -1,7 +1,6 @@
-package com.gomsang.lab.publicmask.models.naver
+package com.gomsang.lab.publicmask.models
 
 import com.gomsang.lab.publicmask.libs.datas.Stock
-import com.gomsang.lab.publicmask.libs.http.mask.Mask
 import io.reactivex.Single
 
 interface MaskRepository {

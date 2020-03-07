@@ -1,4 +1,4 @@
-package com.gomsang.lab.publicmask.models.naver
+package com.gomsang.lab.publicmask.models
 
 import com.gomsang.lab.publicmask.libs.datas.Place
 import io.reactivex.Single

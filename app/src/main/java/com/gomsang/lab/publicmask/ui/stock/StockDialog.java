@@ -13,6 +13,9 @@ import com.gomsang.lab.publicmask.databinding.DialogStockBinding;
 import com.gomsang.lab.publicmask.libs.datas.Stock;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
+/**
+ * 판매처 상세 정보 다이어로그
+ */
 public class StockDialog extends BottomSheetDialogFragment {
 
     static final String ARG_STOCK = "arg_stock";

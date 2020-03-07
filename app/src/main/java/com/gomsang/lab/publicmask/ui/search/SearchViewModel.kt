@@ -1,13 +1,9 @@
 package com.gomsang.lab.publicmask.ui.search
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.gomsang.lab.publicmask.base.BaseViewModel
-import com.gomsang.lab.publicmask.libs.constants.Logger
 import com.gomsang.lab.publicmask.libs.datas.Place
-import com.gomsang.lab.publicmask.libs.datas.kakao.PlaceSearchResult
-import com.gomsang.lab.publicmask.models.naver.PlaceRepository
-import com.google.gson.Gson
+import com.gomsang.lab.publicmask.models.PlaceRepository
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 

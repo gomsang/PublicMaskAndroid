@@ -1,13 +1,11 @@
 package com.gomsang.lab.publicmask.ui.map
 
 import android.graphics.Color
-import android.util.Log
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
 import com.gomsang.lab.publicmask.R
 import com.gomsang.lab.publicmask.base.BaseFragment
 import com.gomsang.lab.publicmask.databinding.FragmentMapBinding
-import com.gomsang.lab.publicmask.libs.constants.Logger
 import com.gomsang.lab.publicmask.libs.datas.Stock
 import com.gomsang.lab.publicmask.libs.util.CoordinateUtil
 import com.gomsang.lab.publicmask.ui.stock.StockDialog
@@ -21,7 +19,9 @@ import com.naver.maps.map.overlay.Marker
 import com.naver.maps.map.overlay.Overlay
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-
+/**
+ * 지도를 나타내는 프래그먼트
+ */
 class MapFragment : BaseFragment<FragmentMapBinding, MapViewModel>(), OnMapReadyCallback {
     override val layoutResourceId: Int
         get() = R.layout.fragment_map
@@ -60,6 +60,7 @@ class MapFragment : BaseFragment<FragmentMapBinding, MapViewModel>(), OnMapReady
 
     override fun initDataBinding() {
         viewModel.stockLiveData.observe(this, Observer {
+            // when new stock data applied, remove all marker from map
             markerList.keys.forEach {
                 it.map = null
             }
@@ -88,8 +89,6 @@ class MapFragment : BaseFragment<FragmentMapBinding, MapViewModel>(), OnMapReady
 
                 infoWindow.open(marker)
                 markerList.put(marker, it)
-
-
             }
         })
     }
@@ -98,26 +97,21 @@ class MapFragment : BaseFragment<FragmentMapBinding, MapViewModel>(), OnMapReady
     }
 
     override fun onMapReady(map: NaverMap) {
+        // limit min zoom for delay api requesting.
         map.minZoom = 14.5
         this.map = map
 
         map.uiSettings.isCompassEnabled = false
         map.uiSettings.isZoomControlEnabled = false
 
-        // camera update
+        // camera update to selected location
         val cameraUpdate =
             CameraUpdate.scrollTo(LatLng(place.latitude!!.toDouble(), place.longitude!!.toDouble()))
         map.moveCamera(cameraUpdate)
 
-       /* // marker added
-        val marker = Marker()
-        marker.position = LatLng(place.latitude!!.toDouble(), place.longitude!!.toDouble())
-        marker.map = map
-*/
         map.addOnCameraChangeListener { reason, animated ->
-            Log.i("NaverMap", "카메라 변경 - reson: $reason, animated: $animated")
-
             val target = map.cameraPosition.target
+            // if last queried location is not exist or distance from last queried location is more than 4km, query approved.
             if (lastQueriedLocation == null || CoordinateUtil.distFrom(
                     target.latitude,
                     target.longitude,
@@ -131,16 +125,6 @@ class MapFragment : BaseFragment<FragmentMapBinding, MapViewModel>(), OnMapReady
                     longitude = target.longitude
                 }
             }
-            if (lastQueriedLocation != null)
-                Logger.log(
-                    "cameraLog",
-                    CoordinateUtil.distFrom(
-                        target.latitude,
-                        target.longitude,
-                        lastQueriedLocation!!.latitude,
-                        lastQueriedLocation!!.longitude
-                    ).toString()
-                )
         }
 
     }
