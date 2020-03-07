@@ -38,6 +38,7 @@
             android:layout_below="@id/searchArea">
 
             <Button
+                android:id="@+id/findNearbyBtn"
                 style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -51,4 +51,9 @@ dependencies {
 
     implementation 'com.squareup.retrofit2:retrofit:2.6.2'
     implementation 'com.squareup.retrofit2:converter-gson:2.6.2'
+
+    implementation 'gun0912.ted:tedpermission-rx2:2.2.3'
+
+    implementation 'io.nlopez.smartlocation:library:3.3.3'
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
 }
