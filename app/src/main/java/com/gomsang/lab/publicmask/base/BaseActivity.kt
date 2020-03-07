@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import com.gomsang.lab.publicmask.libs.ViewUtil
+import com.gomsang.lab.publicmask.libs.util.ViewUtil
 
 abstract class BaseActivity<T : ViewDataBinding, R : BaseViewModel> : AppCompatActivity() {
     lateinit var viewDataBinding: T

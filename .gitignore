@@ -13,3 +13,5 @@
 .externalNativeBuild
 .cxx
 api_key.xml
+SensitiveInformation.java
+SensitiveInformation.kt

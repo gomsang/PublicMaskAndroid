@@ -1,4 +1,4 @@
-package com.gomsang.lab.publicmask.libs
+package com.gomsang.lab.publicmask.libs.util
 
 import android.view.ViewGroup
 

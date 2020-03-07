@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
-import com.gomsang.lab.publicmask.libs.ViewUtil
+import com.gomsang.lab.publicmask.libs.util.ViewUtil
 
 abstract class BaseFragment<T : ViewDataBinding, R : BaseViewModel> : Fragment() {
 
