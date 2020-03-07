@@ -50,6 +50,16 @@
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:icon="@drawable/ic_location_on_black_24dp" />
+
+            <TextView
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:layout_width="wrap_content"
+                android:layout_marginBottom="36dp"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:layout_height="wrap_content"
+                android:text="gyeongrok.kim@gomsang.com"/>
         </RelativeLayout>
 
         <androidx.recyclerview.widget.RecyclerView
