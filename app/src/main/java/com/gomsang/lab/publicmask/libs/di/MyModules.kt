@@ -1,5 +1,7 @@
 package com.gomsang.lab.publicmask.libs.di
 
+import com.gomsang.lab.publicmask.models.naver.MaskRepository
+import com.gomsang.lab.publicmask.models.naver.MaskRepositoryImpl
 import com.gomsang.lab.publicmask.models.naver.PlaceRepository
 import com.gomsang.lab.publicmask.models.naver.PlaceRepositoryImpl
 import com.gomsang.lab.publicmask.ui.main.MainViewModel
@@ -16,6 +18,7 @@ var viewmodels = module {
 
 var models = module {
     single<PlaceRepository> { PlaceRepositoryImpl() }
+    single<MaskRepository> { MaskRepositoryImpl() }
 }
 
 var myDiModule = listOf(
