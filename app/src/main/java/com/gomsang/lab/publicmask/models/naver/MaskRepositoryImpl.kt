@@ -3,8 +3,6 @@ package com.gomsang.lab.publicmask.models.naver
 import com.gomsang.lab.publicmask.libs.constants.Logger
 import com.gomsang.lab.publicmask.libs.datas.Stock
 import com.gomsang.lab.publicmask.libs.datas.mask.MaskQueryResult
-import com.gomsang.lab.publicmask.libs.http.kakao.Kakao
-import com.gomsang.lab.publicmask.libs.http.kakao.KakaoAPI
 import com.gomsang.lab.publicmask.libs.http.mask.Mask
 import com.gomsang.lab.publicmask.libs.http.mask.MaskAPI
 import com.google.gson.Gson
@@ -20,10 +18,11 @@ class MaskRepositoryImpl : MaskRepository {
 
     override fun find(lat: Double, lng: Double): Single<List<Stock>> {
         return Single.create { emitter ->
-            api.searchPlace(lat, lng, "3000" /* 3km */).enqueue(object : Callback<MaskQueryResult> {
+            api.searchPlace(lat, lng, "5000" /* 3km */).enqueue(object : Callback<MaskQueryResult> {
                 override fun onFailure(call: Call<MaskQueryResult>, t: Throwable) {
                     Logger.log(Logger.LOG_NETWORK_RESULT, t.localizedMessage)
-                    emitter.onError(t)
+                    if (!emitter.isDisposed)
+                        emitter.onError(t)
                 }
 
                 override fun onResponse(
@@ -32,7 +31,8 @@ class MaskRepositoryImpl : MaskRepository {
                     Logger.log(Logger.LOG_NETWORK_RESULT, Gson().toJson(response.body()))
                     val list = mutableListOf<Stock>()
                     response.body()?.stores?.forEach { list.add(Stock.convert(it)) }
-                    emitter.onSuccess(list)
+                    if (!emitter.isDisposed)
+                        emitter.onSuccess(list)
                 }
 
             })

@@ -7,7 +7,6 @@ import com.gomsang.lab.publicmask.base.BaseActivity
 import com.gomsang.lab.publicmask.databinding.ActivityMainBinding
 import com.gun0912.tedpermission.TedPermissionResult
 import com.tedpark.tedpermission.rx2.TedRx2Permission
-import io.reactivex.functions.Consumer
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -34,6 +33,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
                             Toast.LENGTH_SHORT
                         )
                             .show()
+                        finish()
                     }
                 },
                 { }
