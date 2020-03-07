@@ -3,43 +3,69 @@
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
 
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/searchArea"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/searchArea"
-            android:layout_marginLeft="24dp"
             android:layout_centerInParent="true"
-            app:cardElevation="4dp"
-            android:layout_marginRight="24dp">
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            app:cardElevation="4dp">
+
             <EditText
-                android:background="@android:color/transparent"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:hint="장소명을 입력하세요"
-                android:textSize="24sp"
+                android:id="@+id/keywordEditText"
                 android:layout_width="match_parent"
-                android:layout_height="54dp" />
+                android:layout_height="54dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="8dp"
+                android:background="@android:color/transparent"
+                android:hint="장소명을 입력하세요"
+                android:imeOptions="actionSearch"
+                android:inputType="text"
+                android:textSize="24sp" />
         </com.google.android.material.card.MaterialCardView>
 
-        <Button
-            android:layout_marginTop="48dp"
+        <RelativeLayout
+            android:id="@+id/controlArea"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/searchArea">
+
+            <Button
+                style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="48dp"
+                android:background="@android:color/transparent"
+                android:padding="16dp"
+                android:text="현재 위치 주변"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:icon="@drawable/ic_location_on_black_24dp" />
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/resultRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_below="@id/searchArea"
-            android:background="@android:color/transparent"
-            android:padding="16dp"
-            android:text="현재 위치 주변"
-            android:textStyle="bold"
-            android:layout_centerHorizontal="true"
-            android:textSize="16sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:icon="@drawable/ic_location_on_black_24dp"
-            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"/>
+            android:layout_marginLeft="28dp"
+            android:layout_marginTop="-4dp"
+            android:layout_marginRight="28dp"
+            android:clipToPadding="true"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:visibility="gone">
+
+
+        </androidx.recyclerview.widget.RecyclerView>
 
     </RelativeLayout>
 </layout>

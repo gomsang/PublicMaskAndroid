@@ -16,7 +16,7 @@ class PlaceRepositoryImpl : PlaceRepository {
         Kakao().api
     }
 
-    override fun searchPlaces(keyword: String): Single<List<Place>> {
+    override fun searchPlaces(keyword: String): Single<MutableList<Place>> {
         return Single.create { emitter ->
             api.searchPlace(
                 "KakaoAK " + SensitiveInformation.KAKAO_RESTAPI_KEY,
