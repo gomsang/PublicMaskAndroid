@@ -1,6 +1,5 @@
 package com.gomsang.lab.publicmask.libs.di
 
-import com.gomsang.lab.publicmask.libs.https.api.NaverCloudPlatform
 import com.gomsang.lab.publicmask.models.naver.PlaceRepository
 import com.gomsang.lab.publicmask.models.naver.PlaceRepositoryImpl
 import com.gomsang.lab.publicmask.ui.map.MapViewModel
@@ -10,7 +9,7 @@ import org.koin.dsl.module.module
 
 var viewmodels = module {
     viewModel { MapViewModel() }
-    viewModel { SearchViewModel() }
+    viewModel { SearchViewModel(get()) }
 }
 
 var models = module {
