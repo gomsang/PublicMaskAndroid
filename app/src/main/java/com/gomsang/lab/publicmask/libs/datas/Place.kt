@@ -1,62 +1,18 @@
 package com.gomsang.lab.publicmask.libs.datas
 
+import android.os.Parcelable
 import com.gomsang.lab.publicmask.libs.datas.kakao.Document
+import kotlinx.android.parcel.Parcelize
 
-class Place {
-    private var name: String? = null
-    private var address: String? = null
-    private var phoneNumber: String? = null
-    private var latitude: String? = null
-    private var longitude: String? = null
-    private var distance: String? = null
-
-    fun getName(): String? {
-        return name
-    }
-
-    fun setName(name: String?) {
-        this.name = name
-    }
-
-    fun getAddress(): String? {
-        return address
-    }
-
-    fun setAddress(address: String?) {
-        this.address = address
-    }
-
-    fun getPhoneNumber(): String? {
-        return phoneNumber
-    }
-
-    fun setPhoneNumber(phoneNumber: String?) {
-        this.phoneNumber = phoneNumber
-    }
-
-    fun getLatitude(): String? {
-        return latitude
-    }
-
-    fun setLatitude(latitude: String?) {
-        this.latitude = latitude
-    }
-
-    fun getLongitude(): String? {
-        return longitude
-    }
-
-    fun setLongitude(longitude: String?) {
-        this.longitude = longitude
-    }
-
-    fun getDistance(): String? {
-        return distance
-    }
-
-    fun setDistance(distance: String?) {
-        this.distance = distance
-    }
+@Parcelize
+class Place(
+    var name: String? = null,
+    var address: String? = null,
+    var phoneNumber: String? = null,
+    var latitude: String? = null,
+    var longitude: String? = null,
+    var distance: String? = null
+) : Parcelable {
 
     companion object {
         fun convert(kakao: Document): Place {

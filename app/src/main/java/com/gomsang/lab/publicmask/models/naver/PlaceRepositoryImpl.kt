@@ -4,8 +4,8 @@ import com.gomsang.lab.publicmask.libs.constants.Logger
 import com.gomsang.lab.publicmask.libs.constants.SensitiveInformation
 import com.gomsang.lab.publicmask.libs.datas.Place
 import com.gomsang.lab.publicmask.libs.datas.kakao.PlaceSearchResult
-import com.gomsang.lab.publicmask.libs.https.api.Kakao
-import com.gomsang.lab.publicmask.libs.https.api.KakaoAPI
+import com.gomsang.lab.publicmask.libs.http.kakao.Kakao
+import com.gomsang.lab.publicmask.libs.http.kakao.KakaoAPI
 import com.google.gson.Gson
 import io.reactivex.Single
 import retrofit2.Call

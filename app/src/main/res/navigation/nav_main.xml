@@ -25,5 +25,9 @@
         android:label="MapFragment"
         tools:layout="@layout/fragment_map" >
 
+        <argument
+            android:name="place"
+            app:argType="com.gomsang.lab.publicmask.libs.datas.Place" />
+
     </fragment>
 </navigation>

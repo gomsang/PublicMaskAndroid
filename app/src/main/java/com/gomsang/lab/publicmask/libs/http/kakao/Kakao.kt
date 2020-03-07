@@ -1,4 +1,4 @@
-package com.gomsang.lab.publicmask.libs.https.api
+package com.gomsang.lab.publicmask.libs.http.kakao
 
 import com.gomsang.lab.publicmask.libs.constants.WebAddresses
 import retrofit2.Retrofit
