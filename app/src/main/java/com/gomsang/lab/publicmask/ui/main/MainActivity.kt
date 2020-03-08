@@ -2,6 +2,8 @@ package com.gomsang.lab.publicmask.ui.main
 
 import android.Manifest
 import android.content.DialogInterface
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.gomsang.lab.publicmask.R
@@ -46,16 +48,16 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
     }
 
     override fun initAfterBinding() {
+        val wv = WebView(this)
+        wv.loadUrl("https://gomsang.github.io/notice_mask19")
+        wv.webViewClient = object : WebViewClient() {
+            override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
+                view.loadUrl(url)
+                return true
+            }
+        }
         val builder = AlertDialog.Builder(this@MainActivity)
-        builder.setMessage(
-            "이용자 여러분께,\n" +
-                    "\n" +
-                    "마스크19 애플리케이션을 이용해주셔서 감사합니다. 현재 간단하게 공적 마스크 재고를 알려드리고 있습니다. 특정 위치를 검색하시거나 현재 위치로 검색을 누르셔서 주변 점포들의 공적 마스크 재고를 파악할 수 있습니다.\n" +
-                    "\n" +
-                    "마스크 재고 상태의 경우 5-10분 마다 업데이트 되오니 재고 파악에 참고하시기 바랍니다. 대학생 개인이 개발하고 있는 애플리케이션으로, 오류에 대한 대처가 늦더라도 너른 양해 부탁드립니다.\n" +
-                    "\n" +
-                    "건강 잘 챙기시길 바랍니다."
-        )
+        builder.setView(wv)
             .setPositiveButton("확인",
                 DialogInterface.OnClickListener { dialog, id ->
                     // FIRE ZE MISSILES!

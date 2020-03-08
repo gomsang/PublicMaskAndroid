@@ -1,11 +1,9 @@
 package com.gomsang.lab.publicmask.ui.map
 
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import com.gomsang.lab.publicmask.base.BaseViewModel
 import com.gomsang.lab.publicmask.libs.datas.Stock
-import com.gomsang.lab.publicmask.models.naver.MaskRepository
-import com.naver.maps.map.NaverMap
+import com.gomsang.lab.publicmask.models.MaskRepository
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
