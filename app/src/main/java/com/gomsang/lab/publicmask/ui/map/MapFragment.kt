@@ -35,9 +35,9 @@ class MapFragment : BaseFragment<FragmentMapBinding, MapViewModel>(), OnMapReady
 
     var map: NaverMap? = null
 
-    var markerList = mutableMapOf<Marker, Stock>()
+    private var markerList = mutableMapOf<Marker, Stock>()
 
-    var lastQueriedLocation: com.gomsang.lab.publicmask.libs.datas.LatLng? = null
+    private var lastQueriedLocation: com.gomsang.lab.publicmask.libs.datas.LatLng? = null
 
     override fun initStartView() {
         val fm = childFragmentManager
@@ -47,26 +47,17 @@ class MapFragment : BaseFragment<FragmentMapBinding, MapViewModel>(), OnMapReady
             }
 
         mapFragment.getMapAsync(this)
-
-
-        /*    SmartLocation.with(context).location()
-                .oneFix()
-                .start {
-                    currentLocation.latitude
-                    currentLocation.longitude
-
-                }*/
     }
 
     override fun initDataBinding() {
-        viewModel.stockLiveData.observe(this, Observer {
+        viewModel.stockLiveData.observe(this, Observer { stocks ->
             // when new stock data applied, remove all marker from map
             markerList.keys.forEach {
                 it.map = null
             }
             markerList.clear()
 
-            it.forEach {
+            stocks.forEach {
                 val infoWindow = InfoWindow()
                 infoWindow.adapter = object : InfoWindow.DefaultTextAdapter(context!!) {
                     override fun getText(infoWindow: InfoWindow): CharSequence {
@@ -98,11 +89,10 @@ class MapFragment : BaseFragment<FragmentMapBinding, MapViewModel>(), OnMapReady
 
     override fun onMapReady(map: NaverMap) {
         // limit min zoom for delay api requesting.
-        map.minZoom = 14.5
+        map.minZoom = 15.0
         this.map = map
 
         map.uiSettings.isCompassEnabled = false
-        map.uiSettings.isZoomControlEnabled = false
 
         // camera update to selected location
         val cameraUpdate =

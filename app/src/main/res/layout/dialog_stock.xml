@@ -27,71 +27,110 @@
             android:layout_height="wrap_content"
             android:text="@{stock.dealerAddress}" />
 
-        <TextView
-            android:layout_marginTop="16dp"
-            android:textColor="@android:color/black"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="재고 수량" />
+        <LinearLayout
+            android:layout_marginTop="24dp"
 
-        <TextView
-            android:textSize="18sp"
-            android:textColor="@android:color/black"
-            android:textStyle="bold"
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@{String.valueOf(stock.remainCount)}" />
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_marginTop="16dp"
-            android:textColor="@android:color/black"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="판매 수량" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textColor="@android:color/black"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="재고 수량" />
 
-        <TextView
-            android:textSize="18sp"
-            android:textColor="@android:color/black"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@{String.valueOf(stock.soldCount)}" />
+                <TextView
+                    android:textSize="20sp"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{String.valueOf(stock.remainCount)}" />
+            </LinearLayout>
 
-        <TextView
-            android:layout_marginTop="16dp"
-            android:textColor="@android:color/black"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="입고 수량" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <TextView
-            android:textSize="18sp"
-            android:textColor="@android:color/black"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@{String.valueOf(stock.stockTotalCount)}" />
+                <TextView
+                    android:textColor="@android:color/black"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="판매된 수량" />
 
-        <TextView
-            android:layout_marginTop="16dp"
-            android:textColor="@android:color/black"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="입고된 시각" />
+                <TextView
+                    android:textSize="20sp"
+                    android:textColor="@android:color/black"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{String.valueOf(stock.soldCount)}" />
+            </LinearLayout>
+        </LinearLayout>
 
-        <TextView
-            android:textSize="18sp"
-            android:textColor="@android:color/black"
+        <LinearLayout
+            android:layout_marginTop="24dp"
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@{stock.stockTime}" />
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textColor="@android:color/black"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="입고된 수량" />
+
+                <TextView
+                    android:textSize="20sp"
+                    android:textColor="@android:color/black"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{String.valueOf(stock.stockTotalCount)}" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textColor="@android:color/black"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="입고된 시각" />
+
+                <TextView
+                    android:textSize="20sp"
+                    android:textColor="@android:color/black"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{stock.stockTime}" />
+
+            </LinearLayout>
+        </LinearLayout>
 
         <TextView
             android:gravity="center"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="6dp"
             android:textColor="@android:color/black"
             android:textStyle="italic"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="본 정보는 5-10 분 주기로 업데이트 됩니다" />
+            android:text="본 정보는 최소 5분 이상 지연된 정보입니다" />
 
     </LinearLayout>
 </layout>

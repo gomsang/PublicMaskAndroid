@@ -7,7 +7,7 @@ import com.gomsang.lab.publicmask.models.MaskRepository
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
-class MapViewModel(val maskRepository: MaskRepository) : BaseViewModel(){
+class MapViewModel(private val maskRepository: MaskRepository) : BaseViewModel(){
     val stockLiveData = MutableLiveData<List<Stock>>()
 
     fun query(lat : Double, lng : Double){

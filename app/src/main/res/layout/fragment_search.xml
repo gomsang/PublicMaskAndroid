@@ -46,9 +46,11 @@
                 android:layout_marginTop="48dp"
                 android:background="@android:color/transparent"
                 android:padding="16dp"
+                app:iconSize="16dp"
                 android:text="현재 위치 주변"
                 android:textSize="16sp"
                 android:textStyle="bold"
+                app:iconPadding="8dp"
                 app:icon="@drawable/ic_location_on_black_24dp" />
 
             <TextView
@@ -57,7 +59,6 @@
                 android:layout_width="wrap_content"
                 android:layout_marginBottom="36dp"
                 android:textColor="@android:color/black"
-                android:textStyle="bold"
                 android:layout_height="wrap_content"
                 android:text="gyeongrok.kim@gomsang.com"/>
         </RelativeLayout>
