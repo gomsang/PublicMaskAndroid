@@ -23,24 +23,15 @@ public class Store {
     @SerializedName("name")
     @Expose
     private String name;
-    @SerializedName("remain_cnt")
+    @SerializedName("stock_at")
     @Expose
-    private Integer remainCnt;
-    @SerializedName("sold_cnt")
-    @Expose
-    private Integer soldCnt;
-    @SerializedName("sold_out")
-    @Expose
-    private Boolean soldOut;
-    @SerializedName("stock_cnt")
-    @Expose
-    private Integer stockCnt;
-    @SerializedName("stock_t")
-    @Expose
-    private String stockT;
+    private String stockAt;
     @SerializedName("type")
     @Expose
     private String type;
+    @SerializedName("remain_stat")
+    @Expose
+    private String remainStat;
 
     public String getAddr() {
         return addr;
@@ -90,44 +81,20 @@ public class Store {
         this.name = name;
     }
 
-    public Integer getRemainCnt() {
-        return remainCnt;
+    public String getStockAt() {
+        return stockAt;
     }
 
-    public void setRemainCnt(Integer remainCnt) {
-        this.remainCnt = remainCnt;
+    public void setStockAt(String stockAt) {
+        this.stockAt = stockAt;
     }
 
-    public Integer getSoldCnt() {
-        return soldCnt;
+    public String getRemainStat() {
+        return remainStat;
     }
 
-    public void setSoldCnt(Integer soldCnt) {
-        this.soldCnt = soldCnt;
-    }
-
-    public Boolean getSoldOut() {
-        return soldOut;
-    }
-
-    public void setSoldOut(Boolean soldOut) {
-        this.soldOut = soldOut;
-    }
-
-    public Integer getStockCnt() {
-        return stockCnt;
-    }
-
-    public void setStockCnt(Integer stockCnt) {
-        this.stockCnt = stockCnt;
-    }
-
-    public String getStockT() {
-        return stockT;
-    }
-
-    public void setStockT(String stockT) {
-        this.stockT = stockT;
+    public void setRemainStat(String remainStat) {
+        this.remainStat = remainStat;
     }
 
     public String getType() {

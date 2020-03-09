@@ -60,7 +60,6 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
         builder.setView(wv)
             .setPositiveButton("확인",
                 DialogInterface.OnClickListener { dialog, id ->
-                    // FIRE ZE MISSILES!
                 })
         builder.create().show()
 

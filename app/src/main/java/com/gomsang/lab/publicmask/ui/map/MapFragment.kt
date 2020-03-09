@@ -1,14 +1,16 @@
 package com.gomsang.lab.publicmask.ui.map
 
-import android.graphics.Color
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
 import com.gomsang.lab.publicmask.R
 import com.gomsang.lab.publicmask.base.BaseFragment
 import com.gomsang.lab.publicmask.databinding.FragmentMapBinding
+import com.gomsang.lab.publicmask.libs.constants.Logger
 import com.gomsang.lab.publicmask.libs.datas.Stock
 import com.gomsang.lab.publicmask.libs.util.CoordinateUtil
+import com.gomsang.lab.publicmask.libs.util.StatUtil
 import com.gomsang.lab.publicmask.ui.stock.StockDialog
+import com.google.gson.Gson
 import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.CameraUpdate
 import com.naver.maps.map.MapFragment
@@ -17,6 +19,7 @@ import com.naver.maps.map.OnMapReadyCallback
 import com.naver.maps.map.overlay.InfoWindow
 import com.naver.maps.map.overlay.Marker
 import com.naver.maps.map.overlay.Overlay
+import com.naver.maps.map.util.MarkerIcons
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**
@@ -51,35 +54,42 @@ class MapFragment : BaseFragment<FragmentMapBinding, MapViewModel>(), OnMapReady
 
     override fun initDataBinding() {
         viewModel.stockLiveData.observe(this, Observer { stocks ->
+
             // when new stock data applied, remove all marker from map
             markerList.keys.forEach {
                 it.map = null
             }
             markerList.clear()
 
-            stocks.forEach {
+            stocks.forEach { stock ->
+                Logger.log("CAMERA_CHANGED", Gson().toJson(stock))
                 val infoWindow = InfoWindow()
                 infoWindow.adapter = object : InfoWindow.DefaultTextAdapter(context!!) {
                     override fun getText(infoWindow: InfoWindow): CharSequence {
-                        return "잔여 " + it.remainCount
+                        return StatUtil.convertStatToString(stock.remainStat!!)
                     }
                 }
 
                 val marker = Marker()
-                marker.position = LatLng(it.dealerLatitude!!, it.dealerLongitude!!)
-                marker.map = map
-                marker.onClickListener = object : Overlay.OnClickListener{
-                    override fun onClick(p0: Overlay): Boolean {
-                        val dialog = StockDialog.newInstance(it)
-                        dialog.show(childFragmentManager, "dialog")
-                        return true
-                    }
+                marker.position = LatLng(stock.dealerLatitude!!, stock.dealerLongitude!!)
+                marker.onClickListener = Overlay.OnClickListener {
+                    val dialog = StockDialog.newInstance(stock)
+                    dialog.show(childFragmentManager, "dialog")
+                    true
                 }
 
-                if (it.isClosed) marker.iconTintColor = Color.RED
-
+                when (stock.remainStat) {
+                    "plenty" -> marker.icon = MarkerIcons.GREEN
+                    "some" -> marker.icon = MarkerIcons.YELLOW
+                    "few" ->
+                        marker.icon = MarkerIcons.RED
+                    "empty" ->
+                        marker.icon = MarkerIcons.GRAY
+                }
+                marker.map = map
                 infoWindow.open(marker)
-                markerList.put(marker, it)
+
+                markerList[marker] = stock
             }
         })
     }
@@ -99,8 +109,9 @@ class MapFragment : BaseFragment<FragmentMapBinding, MapViewModel>(), OnMapReady
             CameraUpdate.scrollTo(LatLng(place.latitude!!.toDouble(), place.longitude!!.toDouble()))
         map.moveCamera(cameraUpdate)
 
-        map.addOnCameraChangeListener { reason, animated ->
+        map.addOnCameraChangeListener { _, _ ->
             val target = map.cameraPosition.target
+            Logger.log("CAMERA_CHANGED", String.format("%f, %f", target.latitude, target.longitude))
             // if last queried location is not exist or distance from last queried location is more than 4km, query approved.
             if (lastQueriedLocation == null || CoordinateUtil.distFrom(
                     target.latitude,
@@ -116,7 +127,6 @@ class MapFragment : BaseFragment<FragmentMapBinding, MapViewModel>(), OnMapReady
                 }
             }
         }
-
     }
 
 }
