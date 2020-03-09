@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.gomsang.lab.publicmask.databinding.ItemSearchPlaceResultBinding
 import com.gomsang.lab.publicmask.libs.OnRecyclerItemClickListener
 import com.gomsang.lab.publicmask.libs.datas.Place
-import com.gomsang.lab.publicmask.ui.map.MapFragmentArgs
 
 class SearchResultAdapter(val context: Context) :
     RecyclerView.Adapter<SearchResultAdapter.SearchResultViewHolder>() {
@@ -62,5 +61,4 @@ class SearchResultAdapter(val context: Context) :
             view.startAnimation(anim)
         }
     }
-
 }

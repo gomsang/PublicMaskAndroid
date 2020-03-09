@@ -53,8 +53,8 @@
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:iconPadding="8dp"
-                android:textColor="#9A353535"
-                app:iconTint="#9A353535"
+                android:textColor="#CC353535"
+                app:iconTint="#CC353535"
                 app:icon="@drawable/ic_info_outline_black_24dp" />
         </RelativeLayout>
     </RelativeLayout>

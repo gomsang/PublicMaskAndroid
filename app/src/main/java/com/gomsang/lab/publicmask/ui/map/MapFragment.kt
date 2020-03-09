@@ -1,5 +1,7 @@
 package com.gomsang.lab.publicmask.ui.map
 
+import android.content.Intent
+import android.net.Uri
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
 import com.gomsang.lab.publicmask.R
@@ -21,6 +23,7 @@ import com.naver.maps.map.overlay.Marker
 import com.naver.maps.map.overlay.Overlay
 import com.naver.maps.map.util.MarkerIcons
 import org.koin.androidx.viewmodel.ext.android.viewModel
+
 
 /**
  * 지도를 나타내는 프래그먼트
@@ -95,6 +98,11 @@ class MapFragment : BaseFragment<FragmentMapBinding, MapViewModel>(), OnMapReady
     }
 
     override fun initAfterBinding() {
+        viewDataBinding.openPageButton.setOnClickListener {
+            val uri: Uri = Uri.parse("https://blog.naver.com/kfdazzang/221839489769")
+            val it = Intent(Intent.ACTION_VIEW, uri)
+            startActivity(it)
+        }
     }
 
     override fun onMapReady(map: NaverMap) {
