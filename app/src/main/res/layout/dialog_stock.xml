@@ -16,12 +16,12 @@
         android:orientation="vertical"
         android:padding="24dp">
 
-       <!-- <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@{StatUtil.INSTANCE.convertTypeToString(stock.dealerType)}"
-            android:textColor="@android:color/black"
-            android:textStyle="bold" />-->
+        <!-- <TextView
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:text="@{StatUtil.INSTANCE.convertTypeToString(stock.dealerType)}"
+             android:textColor="@android:color/black"
+             android:textStyle="bold" />-->
 
         <TextView
             android:layout_width="match_parent"
@@ -77,9 +77,10 @@
                     android:textColor="@android:color/black" />
 
                 <TextView
+                    android:id="@+id/stockTimeTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@{stock.stockTime}"
+                    android:text="시간 로드되지 않음"
                     android:textColor="@android:color/black"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -109,17 +110,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="갱신 : "
-                android:textSize="14sp"
                 android:textColor="@android:color/black"
+                android:textSize="14sp"
                 android:textStyle="italic" />
 
             <TextView
+                android:id="@+id/updatedTimeTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textSize="14sp"
-                android:text='@{stock.updatedTime}'
+                android:text="시간 로드되지 않음"
                 android:textColor="@android:color/black"
+                android:textSize="14sp"
                 android:textStyle="italic" />
         </LinearLayout>
 
