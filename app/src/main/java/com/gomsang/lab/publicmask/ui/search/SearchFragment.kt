@@ -102,5 +102,9 @@ class SearchFragment : BaseFragment<FragmentSearchBinding, SearchViewModel>() {
                 }
             }
         })
+
+        viewDataBinding.preferenceButton.setOnClickListener {
+            findNavController().navigate(R.id.action_searchFragment_to_preferenceFragment)
+        }
     }
 }

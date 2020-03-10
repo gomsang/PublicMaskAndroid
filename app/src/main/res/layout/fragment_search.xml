@@ -57,10 +57,12 @@
                 android:layout_centerHorizontal="true"
                 android:layout_alignParentBottom="true"
                 android:layout_width="wrap_content"
+                android:textStyle="bold"
                 android:layout_marginBottom="36dp"
                 android:textColor="@android:color/black"
                 android:layout_height="wrap_content"
-                android:text="gyeongrok.kim@gomsang.com"/>
+                android:id="@+id/preferenceButton"
+                android:text="애플리케이션 정보"/>
         </RelativeLayout>
 
         <androidx.recyclerview.widget.RecyclerView

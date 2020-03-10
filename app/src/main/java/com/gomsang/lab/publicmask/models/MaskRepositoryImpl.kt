@@ -18,7 +18,7 @@ class MaskRepositoryImpl : MaskRepository {
 
     override fun find(lat: Double, lng: Double): Single<List<Stock>> {
         return Single.create { emitter ->
-            api.searchPlace(lat, lng, "5000" /* 3km */).enqueue(object : Callback<MaskQueryResult> {
+            api.searchPlace(lat, lng, "3000" /* 3km */).enqueue(object : Callback<MaskQueryResult> {
                 override fun onFailure(call: Call<MaskQueryResult>, t: Throwable) {
                     Logger.log(Logger.LOG_NETWORK_RESULT, t.localizedMessage)
                     if (!emitter.isDisposed)

@@ -130,7 +130,7 @@ class MapFragment : BaseFragment<FragmentMapBinding, MapViewModel>(), OnMapReady
                     target.longitude,
                     lastQueriedLocation!!.latitude,
                     lastQueriedLocation!!.longitude
-                ) > 4000
+                ) > 2700
             ) {
                 viewModel.query(target.latitude, target.longitude)
                 lastQueriedLocation = com.gomsang.lab.publicmask.libs.datas.LatLng().apply {

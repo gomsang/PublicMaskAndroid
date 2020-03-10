@@ -1,0 +1,38 @@
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory
+        app:iconSpaceReserved="false"
+        app:key="info"
+        app:title="제작">
+
+        <Preference
+            app:iconSpaceReserved="false"
+            app:summary="gyeongrok.kim@gomsang.com"
+            app:title="김경록" />
+
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:iconSpaceReserved="false"
+        app:key="info"
+        app:title="도움">
+
+        <Preference
+            app:iconSpaceReserved="false"
+            app:summary="공공데이터포털 (건강보험심사평가원)"
+            app:title="공적마스크 정보 제공" />
+
+        <Preference
+            app:iconSpaceReserved="false"
+            app:summary="maskdata@nia.or.kr"
+            app:title="데이터 공개 관련 문의" />
+
+        <Preference
+            app:iconSpaceReserved="false"
+            app:key="license_opensource"
+            app:title="오픈소스 라이센스" />
+
+    </PreferenceCategory>
+</androidx.preference.PreferenceScreen>
