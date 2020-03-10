@@ -66,6 +66,7 @@ class MapFragment : BaseFragment<FragmentMapBinding, MapViewModel>(), OnMapReady
 
             stocks.forEach { stock ->
                 Logger.log("CAMERA_CHANGED", Gson().toJson(stock))
+                if (stock.remainStat == null) stock.remainStat = ""
                 val infoWindow = InfoWindow()
                 infoWindow.adapter = object : InfoWindow.DefaultTextAdapter(context!!) {
                     override fun getText(infoWindow: InfoWindow): CharSequence {
@@ -88,6 +89,9 @@ class MapFragment : BaseFragment<FragmentMapBinding, MapViewModel>(), OnMapReady
                         marker.icon = MarkerIcons.RED
                     "empty" ->
                         marker.icon = MarkerIcons.GRAY
+                    else -> {
+                        marker.icon = MarkerIcons.GRAY
+                    }
                 }
                 marker.map = map
                 infoWindow.open(marker)

@@ -97,7 +97,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding, SearchViewModel>() {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if (!viewModel.latestSearchKeyword.equals(s.toString())) {
+                if (viewModel.latestSearchKeyword != s.toString()) {
                     layoutSwitch(false)
                 }
             }

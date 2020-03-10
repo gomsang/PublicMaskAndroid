@@ -8,7 +8,7 @@ object StatUtil {
             "few" -> return "1+"
             "empty" -> return "재고소진"
         }
-        return "error"
+        return "에러"
     }
     fun convertStatToDetailString(stat : String): String{
         when (stat) {
@@ -17,7 +17,7 @@ object StatUtil {
             "few" -> return "1개 이상 30개 미만"
             "empty" -> return "재고소진"
         }
-        return "error"
+        return "에러"
     }
 
     fun convertTypeToString(type : String): String {
