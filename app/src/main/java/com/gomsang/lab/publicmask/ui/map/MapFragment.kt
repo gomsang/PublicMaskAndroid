@@ -12,7 +12,6 @@ import com.gomsang.lab.publicmask.libs.datas.Stock
 import com.gomsang.lab.publicmask.libs.util.CoordinateUtil
 import com.gomsang.lab.publicmask.libs.util.StatUtil
 import com.gomsang.lab.publicmask.ui.stock.StockDialog
-import com.google.gson.Gson
 import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.CameraUpdate
 import com.naver.maps.map.MapFragment
@@ -65,8 +64,7 @@ class MapFragment : BaseFragment<FragmentMapBinding, MapViewModel>(), OnMapReady
             markerList.clear()
 
             stocks.forEach { stock ->
-                Logger.log("CAMERA_CHANGED", Gson().toJson(stock))
-                if (stock.remainStat == null) stock.remainStat = ""
+                if (stock.dealerLatitude == null || stock.dealerLongitude == null) return@forEach
                 val infoWindow = InfoWindow()
                 infoWindow.adapter = object : InfoWindow.DefaultTextAdapter(context!!) {
                     override fun getText(infoWindow: InfoWindow): CharSequence {
