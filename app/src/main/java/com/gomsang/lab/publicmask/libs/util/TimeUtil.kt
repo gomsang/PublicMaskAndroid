@@ -4,6 +4,19 @@ import java.text.ParseException
 import java.text.SimpleDateFormat
 
 object TimeUtil {
+    fun formatString(time: String): String? {
+        try {
+            val sdf = SimpleDateFormat("yyyy/MM/dd HH:mm:ss")
+            val date = sdf.parse(time)
+            val convertedDate = date.time
+            return  SimpleDateFormat("MM월 dd일 HH:mm").format(convertedDate)
+        } catch (e: ParseException) {
+            e.printStackTrace()
+            return null
+        }
+        return null
+    }
+
     fun calcTimeDiff(time: String): String? {
         try {
             val sdf = SimpleDateFormat("yyyy/MM/dd HH:mm:ss")

@@ -37,15 +37,18 @@ class StockDialog : BottomSheetDialogFragment() {
         stock!!.stockTime?.let {
             binding.stockTimeTextView.text = it
             TimeUtil.calcTimeDiff(it)?.let { diff ->
-                binding.stockTimeTextView.text = String.format(stock!!.stockTime + " (%s)", diff)
+                TimeUtil.formatString(it)?.let { converted ->
+                    binding.stockTimeTextView.text = String.format("%s (%s)", converted, diff)
+                }
             }
         }
 
         stock!!.updatedTime?.let {
             binding.updatedTimeTextView.text = it
             TimeUtil.calcTimeDiff(it)?.let { diff ->
-                binding.updatedTimeTextView.text =
-                    String.format(stock!!.updatedTime + " (%s)", diff)
+                TimeUtil.formatString(it)?.let { converted ->
+                    binding.updatedTimeTextView.text = String.format("%s (%s)", converted, diff)
+                }
             }
         }
         return binding.root

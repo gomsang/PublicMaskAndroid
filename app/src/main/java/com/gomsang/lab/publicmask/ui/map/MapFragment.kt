@@ -72,6 +72,7 @@ class MapFragment : BaseFragment<FragmentMapBinding, MapViewModel>(), OnMapReady
                     }
                 }
 
+
                 val marker = Marker()
                 marker.position = LatLng(stock.dealerLatitude!!, stock.dealerLongitude!!)
                 marker.onClickListener = Overlay.OnClickListener {

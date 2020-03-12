@@ -11,8 +11,8 @@ android {
         applicationId "com.gomsang.lab.nearmask"
         minSdkVersion 22
         targetSdkVersion 29
-        versionCode 6
-        versionName "1.5"
+        versionCode 7
+        versionName "1.6"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

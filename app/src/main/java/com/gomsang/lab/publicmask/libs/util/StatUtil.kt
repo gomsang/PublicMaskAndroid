@@ -7,6 +7,7 @@ object StatUtil {
             "some" -> return "30+"
             "few" -> return "1+"
             "empty" -> return "재고소진"
+            "break" -> return "일시중지"
         }
         return "에러"
     }
@@ -16,6 +17,7 @@ object StatUtil {
             "some" -> return "30개 이상 100개 미만"
             "few" -> return "1개 이상 30개 미만"
             "empty" -> return "재고소진"
+            "break" -> return "일시 판매 중지"
         }
         return "에러"
     }
