@@ -65,6 +65,7 @@ class MapFragment : BaseFragment<FragmentMapBinding, MapViewModel>(), OnMapReady
 
             stocks.forEach { stock ->
                 if (stock.dealerLatitude == null || stock.dealerLongitude == null) return@forEach
+                if (stock.remainStat == null) stock.remainStat = ""
                 val infoWindow = InfoWindow()
                 infoWindow.adapter = object : InfoWindow.DefaultTextAdapter(context!!) {
                     override fun getText(infoWindow: InfoWindow): CharSequence {
