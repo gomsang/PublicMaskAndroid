@@ -4,12 +4,12 @@
     <PreferenceCategory
         app:iconSpaceReserved="false"
         app:key="info"
-        app:title="제작">
+        app:title="Production">
 
         <Preference
             app:iconSpaceReserved="false"
             app:summary="gyeongrok.kim@gomsang.com"
-            app:title="김경록" />
+            app:title="Gyeongrok Kim" />
 
 
     </PreferenceCategory>
@@ -17,22 +17,22 @@
     <PreferenceCategory
         app:iconSpaceReserved="false"
         app:key="info"
-        app:title="도움">
+        app:title="Special Thanks">
 
         <Preference
             app:iconSpaceReserved="false"
-            app:summary="공공데이터포털 (건강보험심사평가원)"
-            app:title="공적마스크 정보 제공" />
+            app:summary="Public Data Portal (HIRA Korea)"
+            app:title="Provide public mask information" />
 
         <Preference
             app:iconSpaceReserved="false"
             app:summary="maskdata@nia.or.kr"
-            app:title="데이터 공개 관련 문의" />
+            app:title="Contact for data provide" />
 
         <Preference
             app:iconSpaceReserved="false"
             app:key="license_opensource"
-            app:title="오픈소스 라이센스" />
+            app:title="Opensource License" />
 
     </PreferenceCategory>
 </androidx.preference.PreferenceScreen>

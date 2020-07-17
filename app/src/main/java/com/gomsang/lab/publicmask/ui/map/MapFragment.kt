@@ -25,7 +25,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 /**
- * 지도를 나타내는 프래그먼트
+ * Fragment representing a map
  */
 class MapFragment : BaseFragment<FragmentMapBinding, MapViewModel>(), OnMapReadyCallback {
     override val layoutResourceId: Int
@@ -72,7 +72,6 @@ class MapFragment : BaseFragment<FragmentMapBinding, MapViewModel>(), OnMapReady
                         return StatUtil.convertStatToString(stock.remainStat!!)
                     }
                 }
-
 
                 val marker = Marker()
                 marker.position = LatLng(stock.dealerLatitude!!, stock.dealerLongitude!!)
@@ -124,6 +123,7 @@ class MapFragment : BaseFragment<FragmentMapBinding, MapViewModel>(), OnMapReady
         map.addOnCameraChangeListener { _, _ ->
             val target = map.cameraPosition.target
             Logger.log("CAMERA_CHANGED", String.format("%f, %f", target.latitude, target.longitude))
+
             // if last queried location is not exist or distance from last queried location is more than 4km, query approved.
             if (lastQueriedLocation == null || CoordinateUtil.distFrom(
                     target.latitude,

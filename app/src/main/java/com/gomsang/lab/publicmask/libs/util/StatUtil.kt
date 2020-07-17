@@ -6,28 +6,28 @@ object StatUtil {
             "plenty" -> return "100+"
             "some" -> return "30+"
             "few" -> return "1+"
-            "empty" -> return "재고소진"
-            "break" -> return "일시중지"
+            "empty" -> return "Empty"
+            "break" -> return "Break"
         }
-        return "에러"
+        return "ERROR"
     }
     fun convertStatToDetailString(stat : String): String{
         when (stat) {
-            "plenty" -> return "100개 이상"
-            "some" -> return "30개 이상 100개 미만"
-            "few" -> return "1개 이상 30개 미만"
-            "empty" -> return "재고소진"
-            "break" -> return "일시 판매 중지"
+            "plenty" -> return "100+"
+            "some" -> return "30 ~ 99"
+            "few" -> return "1 ~ 29"
+            "empty" -> return "Empty"
+            "break" -> return "Break"
         }
-        return "에러"
+        return "ERROR"
     }
 
     fun convertTypeToString(type : String): String {
         when(type){
-            "01" -> return "약국"
-            "02" -> return "우체국"
-            "03" -> return "농협"
+            "01" -> return "Pharmacy"
+            "02" -> return "Post office"
+            "03" -> return "Nonghyup"
         }
-        return "판매처"
+        return "ERROR"
     }
 }

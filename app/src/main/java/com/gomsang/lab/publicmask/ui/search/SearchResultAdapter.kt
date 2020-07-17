@@ -41,7 +41,7 @@ class SearchResultAdapter(val context: Context) :
         holder.bind(places[position])
     }
 
-    inner class SearchResultViewHolder(val binding: ItemSearchPlaceResultBinding) :
+    inner class SearchResultViewHolder(private val binding: ItemSearchPlaceResultBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(place: Place) {

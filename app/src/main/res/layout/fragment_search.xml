@@ -25,7 +25,7 @@
                 android:layout_marginRight="16dp"
                 android:layout_marginBottom="8dp"
                 android:background="@android:color/transparent"
-                android:hint="장소명을 입력하세요"
+                android:hint="Please enter a place name"
                 android:imeOptions="actionSearch"
                 android:inputType="text"
                 android:textSize="24sp" />
@@ -47,7 +47,7 @@
                 android:background="@android:color/transparent"
                 android:padding="16dp"
                 app:iconSize="16dp"
-                android:text="현재 위치 주변"
+                android:text="NearBy"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:iconPadding="8dp"
@@ -62,7 +62,7 @@
                 android:textColor="@android:color/black"
                 android:layout_height="wrap_content"
                 android:id="@+id/preferenceButton"
-                android:text="애플리케이션 정보"/>
+                android:text="Application Information"/>
         </RelativeLayout>
 
         <androidx.recyclerview.widget.RecyclerView

@@ -51,7 +51,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="재고 상태"
+                    android:text="Stock State"
                     android:textColor="@android:color/black" />
 
                 <TextView
@@ -73,14 +73,14 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="입고된 시각"
+                    android:text="Product Receiving Time"
                     android:textColor="@android:color/black" />
 
                 <TextView
                     android:id="@+id/stockTimeTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="시간 로드되지 않음"
+                    android:text="Time not loaded"
                     android:textColor="@android:color/black"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -94,7 +94,7 @@
             android:layout_marginTop="30dp"
             android:layout_marginBottom="6dp"
             android:gravity="center"
-            android:text="본 정보는 최소 5분 이상 지연된 정보입니다"
+            android:text="This information has been delayed for at least five minutes."
             android:textColor="@android:color/black"
             android:textSize="16sp"
             android:textStyle="italic" />
@@ -109,7 +109,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="갱신 : "
+                android:text="updated : "
                 android:textColor="@android:color/black"
                 android:textSize="14sp"
                 android:textStyle="italic" />
@@ -119,7 +119,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="시간 로드되지 않음"
+                android:text="not loaded yet"
                 android:textColor="@android:color/black"
                 android:textSize="14sp"
                 android:textStyle="italic" />

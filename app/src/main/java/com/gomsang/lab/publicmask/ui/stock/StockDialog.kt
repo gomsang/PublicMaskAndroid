@@ -11,7 +11,7 @@ import com.gomsang.lab.publicmask.libs.util.TimeUtil
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 /**
- * 판매처 상세 정보 다이어로그
+ * Seller Detail Dialog
  */
 class StockDialog : BottomSheetDialogFragment() {
     private var stock: Stock? = null
@@ -52,10 +52,6 @@ class StockDialog : BottomSheetDialogFragment() {
             }
         }
         return binding.root
-    }
-
-    override fun onDismiss(dialog: DialogInterface) {
-        super.onDismiss(dialog)
     }
 
     companion object {

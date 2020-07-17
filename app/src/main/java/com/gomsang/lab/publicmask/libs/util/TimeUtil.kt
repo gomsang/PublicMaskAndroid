@@ -9,7 +9,7 @@ object TimeUtil {
             val sdf = SimpleDateFormat("yyyy/MM/dd HH:mm:ss")
             val date = sdf.parse(time)
             val convertedDate = date.time
-            return  SimpleDateFormat("MM월 dd일 HH:mm").format(convertedDate)
+            return  SimpleDateFormat("MM/dd HH:mm").format(convertedDate)
         } catch (e: ParseException) {
             e.printStackTrace()
             return null
@@ -43,17 +43,17 @@ object TimeUtil {
         var diffTime = (curTime - regTime) / 1000
         var msg: String? = null
         if (diffTime < TIME_MAXIMUM.SEC) {
-            msg = "방금 전"
+            msg = "just moment"
         } else if (TIME_MAXIMUM.SEC.let { diffTime /= it; diffTime } < TIME_MAXIMUM.MIN) {
-            msg = diffTime.toString() + "분 전"
+            msg = diffTime.toString() + "minutes ago"
         } else if (TIME_MAXIMUM.MIN.let { diffTime /= it; diffTime } < TIME_MAXIMUM.HOUR) {
-            msg = diffTime.toString() + "시간 전"
+            msg = diffTime.toString() + "hours ago"
         } else if (TIME_MAXIMUM.HOUR.let { diffTime /= it; diffTime } < TIME_MAXIMUM.DAY) {
-            msg = diffTime.toString() + "일 전"
+            msg = diffTime.toString() + "days ago"
         } else if (TIME_MAXIMUM.DAY.let { diffTime /= it; diffTime } < TIME_MAXIMUM.MONTH) {
-            msg = diffTime.toString() + "달 전"
+            msg = diffTime.toString() + "months ago"
         } else {
-            msg = diffTime.toString() + "년 전"
+            msg = diffTime.toString() + "years ago"
         }
         return msg
     }

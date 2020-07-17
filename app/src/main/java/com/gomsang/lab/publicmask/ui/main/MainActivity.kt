@@ -6,6 +6,7 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.lifecycle.Observer
 import com.gomsang.lab.publicmask.R
 import com.gomsang.lab.publicmask.base.BaseActivity
 import com.gomsang.lab.publicmask.databinding.ActivityMainBinding
@@ -20,28 +21,13 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
     override val viewModel: MainViewModel by viewModel()
 
     override fun initStartView() {
-        TedRx2Permission.with(this)
-            .setRationaleTitle("권한요청")
-            .setRationaleMessage("사용자의 가까운 위치의 정보를 제공하기 위해 권한 허용이 필요합니다.")
-            .setPermissions(
-                Manifest.permission.ACCESS_FINE_LOCATION
-            )
-            .request()
-            .subscribe(
-                { tedPermissionResult: TedPermissionResult ->
-                    if (tedPermissionResult.isGranted) {
-                    } else {
-                        Toast.makeText(
-                            this,
-                            "권한 거부됨\n" + tedPermissionResult.deniedPermissions.toString(),
-                            Toast.LENGTH_SHORT
-                        )
-                            .show()
-                        finish()
-                    }
-                },
-                { }
-            )
+        viewModel.permissionRequest.observe(this, Observer {
+            if (it) {
+            } else {
+                Toast.makeText(this, "Permission Denied", Toast.LENGTH_SHORT).show()
+                finish()
+            }
+        })
     }
 
     override fun initDataBinding() {
@@ -58,9 +44,10 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
         }
         val builder = AlertDialog.Builder(this@MainActivity)
         builder.setView(wv)
-            .setPositiveButton("확인",
-                DialogInterface.OnClickListener { dialog, id ->
-                })
+            .setPositiveButton(
+                "Confirm"
+            ) { _, _ ->
+            }
         builder.create().show()
 
     }

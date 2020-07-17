@@ -18,9 +18,6 @@ import com.gomsang.lab.publicmask.libs.datas.Place
 import io.nlopez.smartlocation.SmartLocation
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-/**
- * 주소 검색 및 메인 프래그먼트
- */
 class SearchFragment : BaseFragment<FragmentSearchBinding, SearchViewModel>() {
     override val layoutResourceId: Int
         get() = R.layout.fragment_search
@@ -52,6 +49,14 @@ class SearchFragment : BaseFragment<FragmentSearchBinding, SearchViewModel>() {
             }
         })
 
+        viewModel.locationLiveData.observe(this, Observer {
+            val place = Place().apply {
+                latitude = it.latitude.toString()
+                longitude = it.longitude.toString()
+            }
+            val nav = SearchFragmentDirections.actionSearchFragmentToMapFragment(place)
+            findNavController().navigate(nav)
+        })
     }
 
     override fun initDataBinding() {
@@ -64,20 +69,15 @@ class SearchFragment : BaseFragment<FragmentSearchBinding, SearchViewModel>() {
 
     override fun initAfterBinding() {
         viewDataBinding.findNearbyBtn.setOnClickListener {
-            Toast.makeText(context, "사용자 위치를 가져오고 있습니다. 잠시만 기다려주세요.", Toast.LENGTH_SHORT).show()
-            SmartLocation.with(context).location()
-                .oneFix()
-                .start {
-                    val place = Place().apply {
-                        latitude = it.latitude.toString()
-                        longitude = it.longitude.toString()
-                    }
-                    val nav = SearchFragmentDirections.actionSearchFragmentToMapFragment(place)
-                    findNavController().navigate(nav)
-                }
+            Toast.makeText(
+                context,
+                "Getting user locations. Please wait a moment.",
+                Toast.LENGTH_SHORT
+            ).show()
+            viewModel.requestLocation(requireContext())
         }
 
-        viewDataBinding.keywordEditText.setOnEditorActionListener { v, actionId, event ->
+        viewDataBinding.keywordEditText.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
                 viewModel.search(viewDataBinding.keywordEditText.text.toString())
 

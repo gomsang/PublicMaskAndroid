@@ -16,7 +16,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="16dp"
-                android:text="마스크19 - 공적마스크"
+                android:text="Mask19 - PublicMask"
                 android:textColor="@android:color/black"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -49,7 +49,7 @@
                 android:layout_alignParentRight="true"
                 android:background="@android:color/transparent"
                 app:iconSize="16dp"
-                android:text="식약처 마스크 구매정책"
+                android:text="Mask Supply Policy"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:iconPadding="8dp"
