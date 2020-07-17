@@ -50,5 +50,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
             }
         builder.create().show()
 
+        viewModel.permissionCheck(this)
+
     }
 }
