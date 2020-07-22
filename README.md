@@ -14,4 +14,4 @@ maskdata@nia.or.kr
 
 
 
-Please understand that the urgently produced Android application does not make the project's own pattern smooth. If you have any questions regarding this project, please send us a Github personal email.
+Please understand that the code pattern of the project is not smooth because we created the application for a short period of time. If you have any questions regarding this project, please send us a Github personal email.
