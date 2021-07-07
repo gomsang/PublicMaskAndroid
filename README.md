@@ -11,7 +11,3 @@ This application was installed by a total of 30K+ users during the period of ope
 For data disclosure inquiries, please contact:
 
 maskdata@nia.or.kr
-
-
-
-Please understand that the code pattern of the project is not smooth because we created the application for a short period of time. If you have any questions regarding this project, please send us a Github personal email.
